@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>implement a binary search algorithem</h1>
+
+    <input type="text" id="id1" placeholder="enter array values">
+    <input type="text" id="id2" placeholder="enter specific  array value ">
+    <button onclick=pushto()>push to array</button>
+    <button onclick="radial()">find</button>
+    <h2 id="arr"></h2>
+    <h2 id="arr1"></h2>
+
+    <h2 id="result"></h2>
+   <script>
+  var ar=document.getElementById("id1")
+      
+    var mar=[]
+       function pushto(){
+        
+        mar.push(Number(ar.value))
+        document.getElementById('arr').innerHTML=` array is   : ${mar.toString()}`
+       }
+
+       function radial(){
+        const inp2 =document.getElementById("id2")
+        let n=mar.length;
+         for (let i=0; i<n-1; i++){
+          for(let j=0; j<n-i-1;j++ ){
+            if(mar[j]>mar[j+1]){
+              let sort=mar[j]
+              mar[j]=mar[j+1]
+              mar[j+1]=sort
+
+            }
+          }
+         }
+         var fn=false;
+         document.getElementById('arr1').innerHTML=` sorted array  : ${mar.toString()}`
+
+
+         for(let i=0; i<mar.length;i++){
+            if(Number(inp2.value)==mar[i]){
+              fn=true;
+              document.getElementById("result").innerHTML=` ${inp2.value}present in${i} index`;
+              break;
+            }
+            else{
+              document.getElementById("result").innerHTML=` ${inp2.value} not present`
+            }
+         }
+       
+     
+       } 
+      
+
+    
+        
+        
+       
+    
+            
+        
+
+// function binarySearch(arr, n) {
+//   let min = 0;
+//   let max = arr.length - 1;
+//   let mid;
+//   while (min <= max) {
+//     mid = (min + max) >>> 1;
+//     if (arr[mid] === n) {
+//       return mid;
+//     } else if (arr[mid] < n) {
+//       min = mid + 1;
+//     } else {
+//       max = mid - 1;
+//     }
+//   }
+
+//   return -1;
+// }
+
+// console.log(binarySearch([5,7,8,11,15,16,20], 2));
+    </script>
+    
+</body>
+</html>
